@@ -1,0 +1,8 @@
+[submodule "proxied-app-apache"]
+	path = proxied-app-apache
+	url = git@github.com:jgoerzen/docker-proxied-app-apache.git
+	branch = .
+[submodule "reverse-proxy-apache"]
+	path = reverse-proxy-apache
+	url = git@github.com:jgoerzen/docker-reverse-proxy-apache.git
+	branch = .
