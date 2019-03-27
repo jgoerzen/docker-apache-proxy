@@ -5,10 +5,10 @@ set -x
 
 copyreadme () {
     # arg $1 is name of branch we're on
-    for SUBDIR in debian-base-*; do
+    for SUBDIR in *-apache; do
         cp README.md "$SUBDIR/README.md"
     done
-    git submodule foreach "git checkout $1; git commit -m 'Update README.md from docker-debian-base/README.perimage.md' README.md"
+    git submodule foreach "git checkout $1; git commit -m 'Update README.md from docker-apache-proxy/README.md' README.md"
 }
 
 if [ "$1" = "--allbranches" ]; then
