@@ -13,6 +13,7 @@ docker-build-master:
     - git submodule update
     - cd proxied-app-apache && docker build -t jgoerzen/proxied-app-apache .
     - cd ../reverse-proxy-apache && docker build -t jgoerzen/reverse-proxy-apache .
+    - docker tag jgoerzen/proxied-app-apache jgoerzen/proxied-app-apache:bullseye
     - docker tag jgoerzen/reverse-proxy-apache jgoerzen/reverse-proxy-apache:bullseye
     - docker push jgoerzen/proxied-app-apache
     - docker push jgoerzen/proxied-app-apache:bullseye
