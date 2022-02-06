@@ -7,11 +7,12 @@ docker-build-master:
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   script:
+    - umask 0022
     - apk add git
     - apk add curl
     - git submodule init
     - git submodule update
-    - chmod -R o-w .
+    - chmod -R og-w .
     - cd proxied-app-apache && docker build -t jgoerzen/proxied-app-apache .
     - cd ../reverse-proxy-apache && docker build -t jgoerzen/reverse-proxy-apache .
     - docker tag jgoerzen/proxied-app-apache jgoerzen/proxied-app-apache:bullseye
